@@ -1,0 +1,304 @@
+/*------------- General -----------------*/
+:root {
+  --primary-color: #d0762c;
+  --secondary-color: #262e41;
+  --light-bg-color: #f8f9fa;
+  --navbar-bg-color: #babdc0;
+  --header-text-color: #e2e5e8;
+  --card-bg-gradient: linear-gradient(155deg, rgb(38, 46, 65) 30%, rgba(255, 255, 255, 1) 100%);
+  --card-title-bg: rgb(38, 46, 65);
+  --text-color: #211f1f;
+  --font-family: "Roboto", sans-serif;
+  --font-family-alt: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.3);
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 3rem;
+  --border-radius: 10px;
+  --header-height: 100vh;
+}
+
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  background-color: var(--light-bg-color);
+  padding-top: var(--spacing-lg);
+  overflow-y: auto; /* Permet scroll vertical */
+  padding-bottom: 10rem;
+  text-align: left !important;
+}
+
+body.games-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/Games/images/bgteams.png"); /* Ruta de la imatge de fons */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; /* Ajusta el nivell d'opacitat aquí */
+  z-index: -1;
+}
+
+.navbar-brand {
+  color: #161515;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  margin: 0 var(--spacing-md);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.navbar {
+  background-color: var(--navbar-bg-color);
+  padding: var(--spacing-md);
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  list-style-type: none;
+}
+
+/* Page title styles and animation */
+.page-title-container {
+  display: flex;
+  justify-content: flex-start; /* Alineació a l'esquerra */
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  text-align: left !important;
+}
+
+h1.page-title {
+  font-family: "Cambria", serif;
+  font-weight: 700;
+  text-align: left !important; /* Alineació a l'esquerra */
+  font-size: 3rem; 
+  margin-top: 2rem;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  background-size: 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: animateTitle 3s linear infinite;
+}
+
+@keyframes animateTitle {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+/*-----------------------    GAMES PAGE ---------------------------------------------------------*/
+.games-page #recent-games-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+/* Nous estils per a les targetes dels partits */
+
+.game-card {
+  background: var(--card-bg-gradient);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: transform 0.2s, box-shadow 0.2s;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Assegura que totes les targetes tenen la mateixa alçada */
+  text-align: center;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-hover);
+}
+
+.game-card-title {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  background-color: var(--card-title-bg);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+  min-height: 7rem; /* Ajusta aquest valor segons sigui necessari */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1; /* Assegura que el cos de la targeta creix per omplir l'espai disponible */
+}
+
+.game-card-text-2 {
+  font-size: 1rem;
+  color: var(--text-color);
+  text-align: center;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-card-text-2 img {
+  margin-right: 0.2rem; /* Espai entre la icona i el text */
+  height: 40px;
+  width: 40px;
+}
+
+.game-card-text-1 {
+  background-color: var(--primary-color);
+  opacity: 0.9;
+  margin-bottom: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+}
+
+.game-card-logo {
+  height: 80px;
+  width: 80px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.game-card-team-logos {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm); /* Espai entre els logos */
+}
+
+/* Nous estils per a la finestra de detalls del partit */
+
+.modal-content {
+  background-color: #c5c7cc;
+}
+
+.game-details-container {
+  background: var(--card-bg-gradient);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  box-shadow: var(--shadow-light);
+}
+
+.game-details-thumb {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+}
+
+.game-details-title {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  background-color: var(--card-title-bg);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin-bottom: var (--spacing-md);
+}
+
+.game-details-container p {
+  margin: var(--spacing-sm) 0;
+  font-size: 1rem;
+  text-align: justify;
+  margin-left: 13rem;
+}
+
+.game-details-container p strong {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+a {
+  color: #c14e06;
+}
+
+/*------------------------------------------------------------------------------*/
+
+.footer {
+  background-color: var(--navbar-bg-color);
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  width: 100%;
+  margin-top: var(--spacing-lg);
+  position: fixed; /* Fa que el footer sigui fixe */
+  bottom: 0; /* Assegura que el footer està al final de la pàgina */
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin: 0; /* Elimina els marges per evitar espai addicional */
+}

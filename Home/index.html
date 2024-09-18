@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBA Players</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script type="module" src="./js/controller.js"></script>
+  </head>
+  <body class="index-page">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../Home/index.html">NBA Stats</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../Home/index.html">Inici</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Players/players.html">Jugadors</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Teams/teams.html">Equips</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Games/games.html">Play off</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="../SeasonAverages/seasonAverages.html">Promig de Temporada</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-section" id="heroSection">
+      <div class="hero-content">
+        <h1>Benvinguts a NBA Stats</h1>
+      </div>
+    </div>
+
+    <div class="container mt-5 main-content">
+      <!-- Afegim el contingut de la pàgina -->
+    </div>
+
+    <footer class="footer bg-light text-center">
+      <div class="container">
+        <span class="text-muted">© 2024 NBA Stats. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <!-- Fons enfosquit -->
+    <div class="backdrop" id="backdrop"></div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="infoModal"
+      tabindex="-1"
+      aria-labelledby="infoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="infoModalLabel">Descripció de la Lliga</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="leagueDescription"></div>
+            <div id="social-links" class="social-icons">
+              <a id="facebookLink" href="#" target="_blank">
+                <img src="images/facebook.png" alt="Facebook" />
+              </a>
+              <a id="twitterLink" href="#" target="_blank">
+                <img src="images/twitter.png" alt="Twitter" />
+              </a>
+              <a id="youtubeLink" href="#" target="_blank">
+                <img src="images/youtube.png" alt="YouTube" />
+              </a>
+            </div>
+
+            <div class="gallery">
+              <img
+                id="fanart1"
+                src=""
+                alt="Fan Art 1"
+                title="Fan Art 1: Jugador destacat durant un partit."
+              />
+              <img
+                id="fanart2"
+                src=""
+                alt="Fan Art 2"
+                title="Fan Art 2: Equip celebrant una victòria."
+              />
+              <img
+                id="fanart3"
+                src=""
+                alt="Fan Art 3"
+                title="Fan Art 3: Aficionats animant durant el partit."
+              />
+              <img
+                id="fanart4"
+                src=""
+                alt="Fan Art 4"
+                title="Fan Art 4: Moment clau de la final."
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal per mostrar imatge ampliada -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <button
+              type="button"
+              class="btn-close position-absolute top-0 end-0 m-2"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <img id="largeImage" src="" alt="" class="img-fluid w-100" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

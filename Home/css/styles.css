@@ -1,0 +1,224 @@
+/* CSS existent */
+:root {
+  --primary-color: #d0762c;
+  --secondary-color: #262e41;
+  --light-bg-color: #bfc2c6;
+  --navbar-bg-color: #e2e5e8;
+  --header-text-color: #e2e5e8;
+  --card-bg-gradient: linear-gradient(155deg, rgb(38, 46, 65) 30%, rgba(255, 255, 255, 1) 100%);
+  --card-title-bg: rgb(38, 46, 65);
+  --text-color: #211f1f;
+  --font-family: "Roboto", sans-serif;
+  --font-family-alt: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.3);
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 3rem;
+  --border-radius: 10px;
+  --header-height: calc(
+    100vh - 56px - 56px
+  ); /* Ajusta l'alçada restant de la barra de navegació i el footer */
+}
+
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  background-color: var(--light-bg-color);
+  overflow-y: auto; /* Permet scroll vertical */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 56px; /* Ajusta per col·locar la imatge per sota de la barra de navegació */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 112px); /* Ajusta l'alçada restant de la barra de navegació i el footer */
+  background-image: url("/Home/images/portada.jpg"); /* Ruta de la imatge de fons */
+  background-size: cover;
+  background-position: top center; /* Assegura que es mostra la part superior de la imatge */
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.navbar-brand {
+  color: #161515;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  margin: 0 var(--spacing-md);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.navbar {
+  background-color: var(--navbar-bg-color);
+  padding: var(--spacing-md);
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  list-style-type: none;
+}
+
+.hero-section {
+  background-size: cover;
+  background-position: center top;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #262e41;
+  text-shadow: 1px 1px 2px rgba(253, 97, 0, 0.5);
+}
+
+.hero-content {
+  background: rgba(204, 196, 196, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  border: solid 2px #262e41;
+  margin-top: 5%;
+}
+
+.hero-content:hover {
+  background: rgba(204, 196, 196, 1);
+  cursor: pointer;
+}
+
+.footer {
+  background-color: var(--navbar-bg-color);
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Centrar el modal */
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 3.5rem);
+}
+
+.modal-content {
+  margin: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-hover);
+  background-color: #d3d6db;
+}
+
+.modal-header {
+  background-color: var(--primary-color);
+  color: #262e41;
+  padding-left: 2rem;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-md);
+  padding-right: 4rem;
+  padding-left: 4rem;
+  padding-top: 2rem;
+}
+
+.btn-secondary {
+  color: #d0762c;
+  background-color: #262e41;
+  font-weight: 700;
+}
+
+#social-links {
+  display: flex;
+  justify-content: flex-start; /* Les icones es col·loquen a l'esquerra */
+  gap: 10px; /* Espai entre les icones */
+  position: absolute; /* Posició absoluta per alinear-les correctament */
+  left: 2rem; /* Ajusta segons les teves necessitats */
+  bottom: -3.2rem;
+}
+
+#social-links a img {
+  height: 52px;
+  background: none;
+}
+
+#social-links a img:hover {
+  transform: scale(1.1); /* Augmenta la mida un 10% */
+  transition: transform 0.2s; /* Transició suau */
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery img {
+  max-width: 9.5rem !important;
+  margin: 5px !important;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  cursor: pointer;
+}
+
+.modal-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding-top: 1rem;
+  background-color: #262e41;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+
+/* Fons enfosquit per la pàgina */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(29, 29, 29, 0.1);
+  z-index: 1050; /* Per sobre del contingut però per sota dels modals */
+  display: none;
+}
+
+.backdrop.show {
+  display: block;
+}
+
+.blurred {
+  filter: blur(2px);
+}

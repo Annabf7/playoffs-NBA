@@ -1,0 +1,228 @@
+:root {
+  --primary-color: #d0762c;
+  --secondary-color: #262e41;
+  --light-bg-color: #f8f9fa;
+  --navbar-bg-color: #e2e5e8;
+  --header-text-color: #e2e5e8;
+  --card-bg-gradient: linear-gradient(155deg, rgb(38, 46, 65) 30%, rgba(255, 255, 255, 1) 100%);
+  --card-title-bg: rgb(38, 46, 65);
+  --text-color: #211f1f;
+  --font-family: "Roboto", sans-serif;
+  --font-family-alt: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.3);
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 3rem;
+  --border-radius: 10px;
+}
+
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  background-color: var(--light-bg-color);
+  padding-top: var(--spacing-lg);
+  overflow-y: auto; /* Permet scroll vertical */
+  margin-top:3rem;
+}
+
+body:not(.index-page)::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/SeasonAverages/images/portada.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8; /* Ajusta el nivell d'opacitat aquí */
+  z-index: -1;
+  
+}
+
+.navbar-brand {
+  color: #161515;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  margin: 0 var(--spacing-md);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.navbar {
+  background-color: var(--navbar-bg-color);
+  padding: var(--spacing-md);
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  list-style-type: none;
+}
+
+.footer {
+  background-color: var(--navbar-bg-color);
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  width: 100%;
+  margin-top: var(--spacing-lg);
+  position: fixed; /* Fa que el footer sigui fixe */
+  bottom: 0; /* Assegura que el footer està al final de la pàgina */
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin: 0; /* Elimina els marges per evitar espai addicional */
+}
+
+/* Estils per a la pàgina Promig de Temporada */
+.season-averages-page .main-content {
+  background-color: #f5f3f2;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding-right: 2rem;
+  padding-left: 2rem;
+  margin-bottom: 8rem;
+}
+
+.season-averages-page h1 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+#league-details h2 {
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+#league-details p {
+  color: var(--text-color);
+  text-align: justify;
+}
+
+.table-responsive {
+  margin-top: var(--spacing-lg);
+}
+
+.table.season-averages-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.table.season-averages-table thead {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.table.season-averages-table th,
+.table.season-averages-table td {
+  padding: var(--spacing-sm);
+  text-align: center;
+  border: 1px solid var(--navbar-bg-color);
+}
+
+.table.season-averages-table tbody tr:nth-of-type(odd) {
+  background-color: var(--light-bg-color);
+}
+
+.table.season-averages-table tbody tr:nth-of-type(even) {
+  background-color: white;
+}
+
+.table.season-averages-table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Estils per a les capçaleres */
+.table.season-averages-table thead th {
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: bold;
+}
+
+.table.season-averages-table tbody td {
+  color: var(--text-color);
+}
+
+.table.season-averages-table tbody tr:first-child td {
+  border-top: none;
+}
+
+.table-seasons th,
+.table-seasons td {
+  padding: 0.75rem;
+}
+
+td img {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  width: 24px; /* Adjusta l'ample del logotip */
+  height: 24px; /* Adjusta l'altura del logotip */
+}
+
+.team-logo {
+  display: flex;
+  align-items: center;
+}
+
+.team-logo img {
+  margin-right: 0.5rem;
+}
+
+.table.season-averages-table td:nth-child(2),
+.table.season-averages-table th:nth-child(2) {
+  text-align: left; /* Alineació a l'esquerra */
+  padding-left: 3rem;
+}
+
+/* Page title styles and animation */
+h1.page-title {
+  font-family: "Cambria", serif;
+  font-weight: 700;
+  text-align: left !important;
+  font-size: 3rem; /* Ajusta segons les teves necessitats */
+  margin-top: 2rem;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  background-size: 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: animateTitle 3s linear infinite;
+}
+
+@keyframes animateTitle {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}

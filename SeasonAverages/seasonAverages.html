@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promig de Temporada de la NBA</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../SeasonAverages/css/styles.css" />
+    <script type="module" src="./js/controller.js"></script>
+  </head>
+  <body class="season-averages-page">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../Home/index.html">NBA Stats</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../Home/index.html">Inici</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Players/players.html">Jugadors</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Teams/teams.html">Equips</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Games/games.html">Play off</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="./seasonAverages.html">Promig de Temporada</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 main-content">
+      <h1 class="page-title" style="text-align: left">Promig de Temporada</h1>
+
+      <div id="league-details" class="my-4">
+        <p id="league-description"></p>
+      </div>
+      <div id="season-stats-list" class="table-responsive">
+        <table class="table table-striped table-hover season-averages-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Equip</th>
+              <th scope="col">Jugats</th>
+              <th scope="col">Victòries</th>
+              <th scope="col">Derrotes</th>
+              <th scope="col">Punts a Favor</th>
+              <th scope="col">Punts en Contra</th>
+              <th scope="col">Diferència de Punts</th>
+              <th scope="col">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Les estadístiques de la temporada es carregaran aquí dinàmicament -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer class="footer bg-light text-center">
+      <div class="container">
+        <span class="text-muted">© 2024 Estadístiques de la NBA. Tots els drets reservats.</span>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBA Players</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script type="module" src="./js/controller.js"></script>
+  </head>
+  <body class="players-page">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../Home/index.html">NBA Stats</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../Home/index.html">Inici</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="../Players/players.html">jugadors</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="../Teams/teams.html">Equips</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Games/games.html">Play off</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="../SeasonAverages/seasonAverages.html"
+                >Promig de Temporada</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="loading-screen" id="loading-screen" style="display: none">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <div
+      class="page-title-container container mt-5 main-content d-flex justify-content-between align-items-center"
+    >
+      <h1 class="page-title">Jugadors de la NBA</h1>
+      <form id="searchForm" class="d-flex">
+        <input type="text" id="searchInput" placeholder="Cerca jugador" class="form-control me-2" />
+        <button type="submit" class="btn btn-primary">Cerca</button>
+      </form>
+    </div>
+    <div id="teams-list" class="grid-container"></div>
+
+    <!-- Modal per mostrar jugadors -->
+    <div
+      class="modal fade"
+      id="playersModal"
+      tabindex="-1"
+      aria-labelledby="playersModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content player-modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="playersModalLabel">Team Players</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body player-modal-body">
+            <!-- Spinner -->
+            <div id="spinner-container" class="d-flex">
+              <div class="spinner"></div>
+            </div>
+            <!-- els detalls dels jugadors seràn automaticament descarregats aquí -->
+            <div id="players-list" class="row justify-content-center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal per mostrar els detalls del jugador -->
+    <div
+      class="modal fade"
+      id="playerModal"
+      tabindex="-1"
+      aria-labelledby="playerModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content player-detail-modal-content">
+          <div class="modal-header custom-modal-header">
+            <h5 class="modal-title" id="playerModalLabel">Detalls del Jugador</h5>
+            <button
+              type="button"
+              class="btn-close custom-btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body player-detail-modal-body">
+            <!-- Player details will be loaded here dynamically -->
+            <div id="playerDetails" class="player-details-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer bg-light text-center">
+      <div class="container">
+        <span class="text-muted">© 2024 NBA Stats. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

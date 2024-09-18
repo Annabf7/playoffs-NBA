@@ -1,0 +1,332 @@
+/*------------- General -----------------*/
+:root {
+  --primary-color: #d0762c;
+  --secondary-color: #262e41;
+  --light-bg-color: #f8f9fa;
+  --navbar-bg-color: #e2e5e8;
+  --header-text-color: #e2e5e8;
+  --card-bg-gradient: linear-gradient(155deg, rgb(38, 46, 65) 30%, rgba(255, 255, 255, 1) 100%);
+  --card-title-bg: rgb(38, 46, 65);
+  --text-color: #211f1f;
+  --font-family: "Roboto", sans-serif;
+  --font-family-alt: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.3);
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 3rem;
+  --border-radius: 10px;
+}
+
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  background-color: var(--light-bg-color);
+  padding-top: var(--spacing-lg);
+  overflow-y: auto; /* Permet scroll vertical */
+}
+
+body:not(.index-page)::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/Players/images/bgteams.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; /* Ajusta el nivell d'opacitat aquí */
+  z-index: -1;
+}
+
+.navbar-brand {
+  color: #161515;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  margin: 0 var(--spacing-md);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.navbar {
+  background-color: var(--navbar-bg-color);
+  padding: var(--spacing-md);
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  list-style-type: none;
+}
+
+.footer {
+  background-color: var(--navbar-bg-color);
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  width: 100%;
+  margin-top: var(--spacing-lg);
+  position: fixed; /* Fa que el footer sigui fixe */
+  bottom: 0; /* Assegura que el footer està al final de la pàgina */
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin: 0; /* Elimina els marges per evitar espai addicional */
+}
+
+.players-page #teams-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: 7rem;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+h1.page-title {
+  font-family: "Cambria", serif;
+  font-weight: 700;
+  font-size: 3rem; /* Ajusta segons les teves necessitats */
+  margin-top: 2rem;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  background-size: 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: animateTitle 3s linear infinite;
+}
+
+@keyframes animateTitle {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  background-color: var(--card-title-bg);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 0.3rem;
+  margin-top: 0.8em;
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-family-alt);
+  height: 100%; /* Asegura que l'alçada de la targeta es completa */
+  text-align: center; /* Centra el text dins del contenedor */
+}
+
+.players-page .grid-container {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  padding: var(--spacing-md); /* Afegit per ajustar el padding */
+  text-align: center;
+  margin: var(--spacing-md);
+  cursor: pointer;
+}
+
+.players-page .card {
+  background: var(--card-bg-gradient);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  padding: var(--spacing-md); /* Afegit per ajustar el padding */
+  text-align: center;
+  margin: var(--spacing-md);
+}
+
+.players-page .card:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-hover);
+}
+
+.players-page .card-body {
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.players-page .card-title {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  background-color: var(--card-title-bg);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 0.3rem;
+  margin-top: 0.8em;
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-family-alt);
+  min-height: 4rem;
+}
+
+.players-page .card-img-top {
+  border-radius: 50%;
+  height: 140px;
+  width: 140px;
+  object-fit: cover;
+  margin: 10px auto 5px;
+  background-color: rgb(236, 230, 230);
+}
+
+.players-page .card-text {
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+/* CSS per al modal de detalls del jugador */
+.custom-btn-close {
+  color: #d0762c !important;
+}
+
+.player-detail-modal-content {
+  background: var(--card-bg-gradient);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding: var(--spacing-md);
+  max-width: 23rem;
+}
+
+.player-detail-modal-body {
+  padding: var(--spacing-md);
+}
+
+.player-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-details-container img {
+  border-radius: 50%;
+  height: 140px;
+  width: 140px;
+  object-fit: cover;
+  margin-bottom: var(--spacing-md);
+  background-color: rgb(236, 230, 230);
+}
+
+.player-details-container h5 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  background-color: var(--card-title-bg);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 0.5rem;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.player-details-container p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.player-details-container .shirt-icon {
+  display: inline-block;
+  width: 42px; /* Ajusta l'ample segons el que necessitis */
+  height: 42px; /* Ajusta l'alçada segons el que necessitis */
+  margin-right: 8px; /* Espai entre la icona i el text */
+  vertical-align: middle; /* Centra verticalment la icona amb el text */
+  border-radius: 0%;
+  background-color: transparent;
+}
+
+.custom-modal-header {
+  color: #d0762c;
+  border-bottom: 1px solid #d0762c; /* Opcional: una línia de separació */
+}
+
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100% - 1rem);
+}
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+.modal-content {
+  z-index: 1050 !important;
+}
+.modal-backdrop.show {
+  opacity: 0.4;
+}
+
+.modal-blur {
+  filter: blur(20px);
+  opacity: 0.1;
+}
+
+#searchForm {
+  margin-top: 2rem;
+}
+
+#searchForm .btn-primary {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none; /* Opcional: Elimina el contorn per defecte del botó */
+}
+
+#searchForm .btn-primary:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  opacity: 0.9; /* Opcional: Afegeix una lleugera opacitat al passar el cursor per sobre */
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}

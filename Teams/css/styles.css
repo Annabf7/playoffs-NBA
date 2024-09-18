@@ -1,0 +1,306 @@
+/*------------- General -----------------*/
+:root {
+  --primary-color: #d0762c;
+  --secondary-color: #262e41;
+  --light-bg-color: #f8f9fa;
+  --navbar-bg-color: #babdc0;
+  --card-bg-gradient: linear-gradient(155deg, rgb(38, 46, 65) 30%, rgba(255, 255, 255, 1) 100%);
+  --card-title-bg: rgb(38, 46, 65);
+  --text-color: #211f1f;
+  --font-family: "Roboto", sans-serif;
+  --font-family-alt: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.3);
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 3rem;
+  --border-radius: 10px;
+}
+
+body.teams-page {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  background-color: var(--light-bg-color);
+  padding-top: var(--spacing-lg);
+  overflow-y: auto;
+  position: relative;
+  margin-top: 2rem;
+}
+
+body.teams-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/Teams/images/bgteams.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; /* Ajusta el nivell d'opacitat aquí */
+  z-index: -1;
+}
+
+.navbar-brand {
+  color: #161515;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  margin: 0 var(--spacing-md);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.navbar {
+  background-color: var(--navbar-bg-color);
+  padding: var(--spacing-md);
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  list-style-type: none;
+}
+
+.teams-page #teams-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.team-card {
+  background: var(--card-bg-gradient);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  width: 17rem; /* Amplada màxima de la targeta */
+  height: 30rem; /* Alçada fixa de la targeta */
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-hover);
+}
+
+.team-card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0.5rem; /* Ajusta el padding intern */
+}
+
+.team-card .card-img-top {
+  height: 12rem; /* Ajusta l'alçada de la imatge */
+  width: 12rem; /* Ajusta l'amplada de la imatge */
+  object-fit: cover;
+  margin: 10px auto;
+  background-color: rgb(236, 230, 230);
+  border-radius: 50%;
+}
+
+.team-card .team-name {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 1rem;
+  border: 2px solid #262e41;
+  width: 100%;
+}
+
+.team-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px auto; /* Espai entre la taula i la resta del contingut */
+}
+
+.team-info-table th,
+.team-info-table td {
+  border: 1px solid var(--secondary-color);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.team-info-table th {
+  background-color: rgba(38, 46, 65, 0.8); /* Afegir una mica d'opacitat */
+  color: var(--primary-color);
+}
+
+.team-info-table td {
+  background-color: rgba(236, 230, 230, 0.8); /* Afegir una mica d'opacitat */
+  color: var(--secondary-color);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d0762c;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ff0000;
+}
+
+#map {
+  height: 75vh;
+  width: 80vw;
+  margin: 0 auto;
+  display: block;
+  border: 3px solid #d0762c;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+}
+
+#map-card-container {
+  display: block;
+  position: absolute;
+  z-index: 1000;
+}
+
+.map-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
+  box-shadow: var(--shadow-light);
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.map-controls .btn {
+  margin-bottom: 0;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.map-controls .btn:hover {
+  background-color: rgba(38, 46, 65, 0.8);
+  color: var(--primary-color) !important;
+}
+
+#division-controls {
+  display: none;
+  flex-wrap: wrap;
+}
+
+.footer {
+  background-color: var(--navbar-bg-color);
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Page title styles and animation */
+h1.page-title {
+  font-family: "Cambria", serif;
+  font-weight: 700;
+  font-size: 3rem; /* Ajusta segons les teves necessitats */
+  margin-top: 2rem;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  background-size: 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: animateTitle 3s linear infinite;
+}
+
+@keyframes animateTitle {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+/* Page title styles and animation */
+.page-title-container {
+  text-align: left;
+  margin-right: 21%;
+}
+
+h1.page-title {
+  font-family: "Cambria", serif;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-top: 2rem;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  background-size: 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: animateTitle 3s linear infinite;
+}
+
+@keyframes animateTitle {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+#loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
